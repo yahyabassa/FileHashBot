@@ -1,4 +1,5 @@
 import hashlib
+import base64
 import logging
 from helper_func.fileFolderFuncs import cleanFolder, deleteFile
 from helper_func.generateNewFilename import GenerateNewFilename
