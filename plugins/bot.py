@@ -175,7 +175,7 @@ async def FileHashBot(client, message):
     finishedText = "🍆 File: `{}`\n".format(documentFilename)
     finishedText += "🍇 Size: `{}`\n".format(HumanBytes(documentFilesize))
     finishedText += "🍓 MD5: `{}`\n".format(md5.hexdigest())
-    finishedText += "🍌 SHA1: `{}`\n".format(sha1.hexdigest())
+    finishedText += "🍌 SHA1: `{}`\n".format(base64.b64encode(sha1.hexdigest()))
     finishedText += "🍒 SHA224: `{}`\n".format(sha224.hexdigest())
     finishedText += "🍑 SHA256: `{}`\n".format(sha256.hexdigest())
     finishedText += "🥭 SHA512: `{}`\n".format(sha512.hexdigest())
