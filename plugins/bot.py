@@ -150,18 +150,8 @@ async def FileHashBot(client, message):
     try:
         with open(downloadedFileLocation, "rb") as f:
             md5 = hashlib.md5()
-            sha1 = hashlib.sha1()
-            sha224 = hashlib.sha224()
-            sha256 = hashlib.sha256()
-            sha512 = hashlib.sha512()
-            sha384 = hashlib.sha384()
             while chunk := f.read(8192):
                 md5.update(chunk)
-                sha1.update(chunk)
-                sha224.update(chunk)
-                sha256.update(chunk)
-                sha512.update(chunk)
-                sha384.update(chunk)
     except Exception as a:
         LOGGER.info(str(a))
         await downloadingMessage.edit(text=f"Hashing error.\n\n{str(a)}",
@@ -174,12 +164,7 @@ async def FileHashBot(client, message):
     hashFinishTime = time.time()
     finishedText = "🍆 File: `{}`\n".format(documentFilename)
     finishedText += "🍇 Size: `{}`\n".format(HumanBytes(documentFilesize))
-    finishedText += "🍓 MD5: `{}`\n".format(md5.hexdigest())
-    finishedText += "🍌 SHA1: `{}`\n".format(base64.b64encode(sha1.hexdigest()))
-    finishedText += "🍒 SHA224: `{}`\n".format(sha224.hexdigest())
-    finishedText += "🍑 SHA256: `{}`\n".format(sha256.hexdigest())
-    finishedText += "🥭 SHA512: `{}`\n".format(sha512.hexdigest())
-    finishedText += "🍎 SHA384: `{}`\n".format(sha384.hexdigest())
+    finishedText += "MD5: `{}`\n".format(md5.hexdigest())
     timeTaken = f"🥚 Hash Time / İşlem Süresi: `{TimeFormatter((hashFinishTime - hashStartTime) * 1000)}`"
     await editMessage(downloadingMessage, Config.HASH_SUCCESS.format(timeTaken, finishedText))
     # clean folder if one process per user
