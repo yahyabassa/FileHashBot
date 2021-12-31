@@ -70,7 +70,7 @@ class Config:
         f"\nTüm dosyalarınızı ve sıranızı `/{CLEARME_COMMAND[0]}` ile temizleyebilirsiniz." + \
         " İşlem sıranız temizlenir. Şu an bir işlem varsa bozulabilir. Dikkatli olun.")
     HASH_SUCCESS = os.environ.get('HASH_SUCCESS',
-        "🇹🇷 Dosya toplamları hesaplandı / 🇬🇧 Calculated file hashes\n{}\n\n{}")
+        "MD5 Hash")
     CLEAR_STR = os.environ.get('CLEAR_STR',
         "🇬🇧 You\'re clean like a baby now. I deleted your files.\n🇹🇷 Şimdi bebek gibi tertemizsin. Dosyalarını sildim.")
     JOIN_CHANNEL_STR = os.environ.get('JOIN_CHANNEL_STR',
