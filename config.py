@@ -69,8 +69,8 @@ class Config:
         "🇹🇷 Medyanızı gönderin ve `/" + HASH_COMMAND[0] + "` ile yanıtlayın." + \
         f"\nTüm dosyalarınızı ve sıranızı `/{CLEARME_COMMAND[0]}` ile temizleyebilirsiniz." + \
         " İşlem sıranız temizlenir. Şu an bir işlem varsa bozulabilir. Dikkatli olun.")
-   # HASH_SUCCESS = os.environ.get('HASH_SUCCESS',"🇹🇷 Dosya toplamları hesaplandı / 🇬🇧 Calculated file hashes\n{}\n\n{}")
- HASH_SUCCESS = os.environ.get('HASH_SUCCESS',"MD5 Hash:{}")
+    HASH_SUCCESS = os.environ.get('HASH_SUCCESS',
+        "🇹🇷 Dosya toplamları hesaplandı / 🇬🇧 Calculated file hashes\n{}\n\n{}")
     CLEAR_STR = os.environ.get('CLEAR_STR',
         "🇬🇧 You\'re clean like a baby now. I deleted your files.\n🇹🇷 Şimdi bebek gibi tertemizsin. Dosyalarını sildim.")
     JOIN_CHANNEL_STR = os.environ.get('JOIN_CHANNEL_STR',
@@ -90,7 +90,7 @@ class Config:
         PROGRESS += "\n\n💎 " + CHANNEL_OR_CONTACT
         DOWNLOAD_SUCCESS += "\n\n💎 " + CHANNEL_OR_CONTACT
         START_TEXT_STR += "\n\n💎 " + CHANNEL_OR_CONTACT
-       # HASH_SUCCESS += "\n💎 " + CHANNEL_OR_CONTACT
+        HASH_SUCCESS += "\n💎 " + CHANNEL_OR_CONTACT
     
     # geliştiriciyseniz elleyebilirsiniz:
     HELP_COMMANDS = ['start', 'help','yardim', "yardım", "y","h"]
