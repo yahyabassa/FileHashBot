@@ -90,7 +90,7 @@ class Config:
         PROGRESS += "\n\n💎 " + CHANNEL_OR_CONTACT
         DOWNLOAD_SUCCESS += "\n\n💎 " + CHANNEL_OR_CONTACT
         START_TEXT_STR += "\n\n💎 " + CHANNEL_OR_CONTACT
-        HASH_SUCCESS += "\n💎 " + CHANNEL_OR_CONTACT
+      #  HASH_SUCCESS += "\n💎 " + CHANNEL_OR_CONTACT
     
     # geliştiriciyseniz elleyebilirsiniz:
     HELP_COMMANDS = ['start', 'help','yardim', "yardım", "y","h"]
