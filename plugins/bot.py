@@ -171,7 +171,6 @@ async def FileHashBot(client, message):
    # hashFinishTime = time.time()
     finishedText = "File: `{}`\n".format(documentFilename)
     finishedText += "Size: `{}`\n".format(documentFilesize)
-     finishedText += "Location: `{}`\n".format(downloadedFileLocation)
     finishedText += "MD5: `{}`".format(md5.hexdigest())
    # finishedText += "MD5: `{}`".format(get_md5(downloadedFileLocation))
    # timeTaken = f"🥚 Hash Time / İşlem Süresi: `{TimeFormatter((hashFinishTime - hashStartTime) * 1000)}`"
