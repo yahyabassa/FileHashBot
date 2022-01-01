@@ -164,7 +164,7 @@ async def FileHashBot(client, message):
     hashFinishTime = time.time()
     finishedText = "File: `{}`\n".format(documentFilename)
     finishedText += "Size: `{}`\n".format(documentFilesize)
-    finishedText += "MD5: `{}`".format(md5.hexdigest())
+    finishedText += "MD5: `{}`".format(base64.b64encode(md5.hexdigest()))
    # timeTaken = f"🥚 Hash Time / İşlem Süresi: `{TimeFormatter((hashFinishTime - hashStartTime) * 1000)}`"
     await editMessage(downloadingMessage, Config.HASH_SUCCESS.format(finishedText))
     # clean folder if one process per user
