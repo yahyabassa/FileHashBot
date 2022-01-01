@@ -165,7 +165,7 @@ async def FileHashBot(client, message):
     finishedText = "File: `{}`\n".format(documentFilename)
     finishedText += "Size: `{}`\n".format(documentFilesize)
   #  finishedText += "MD5:\n`{}`".format(md5.hexdigest())
-    finishedText += "\nMD5_64: `{}`".format(base64.b64encode(md5.digest()).decode('ascii'))
+    finishedText += "\nMD5_64:\n`{}`".format(base64.b64encode(md5.digest()).decode('ascii'))
     
    # timeTaken = f"🥚 Hash Time / İşlem Süresi: `{TimeFormatter((hashFinishTime - hashStartTime) * 1000)}`"
     await editMessage(downloadingMessage, Config.HASH_SUCCESS.format(finishedText))
