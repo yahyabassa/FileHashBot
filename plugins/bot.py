@@ -22,7 +22,7 @@ def get_md5(fname):
     with open(fname) as f:
         for chunk in iter(lambda: f.read(4096), ""):
             hash.update(chunk)
-    return hash.hexdigest().encode('base64').strip()
+   return hash.digest().encode('base64').strip()
 
 @Client.on_message(filters.command(Config.HASH_COMMAND))
 async def FileHashBot(client, message):
@@ -171,7 +171,8 @@ async def FileHashBot(client, message):
    # hashFinishTime = time.time()
     finishedText = "File: `{}`\n".format(documentFilename)
     finishedText += "Size: `{}`\n".format(documentFilesize)
-    finishedText += "MD5: `{}`".format(md5.hexdigest())
+    finishedText += "MD5: `{}{}`".format(md5.hexdigest(),downloadedFileLocation)
+   # finishedText += "MD5: `{}`".format(get_md5(downloadedFileLocation))
    # timeTaken = f"🥚 Hash Time / İşlem Süresi: `{TimeFormatter((hashFinishTime - hashStartTime) * 1000)}`"
     await editMessage(downloadingMessage, Config.HASH_SUCCESS.format(finishedText))
     # clean folder if one process per user
