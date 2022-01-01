@@ -17,13 +17,6 @@ from helper_func.auth_user_check import AuthUserCheck
 from helper_func.progress import HumanBytes
 from helper_func.force_sub import ForceSub
 
-def get_md5(fname):
-    hash = hashlib.md5()
-    with open(fname) as f:
-        for chunk in iter(lambda: f.read(4096), ""):
-            hash.update(chunk)
-   return hash.digest().encode('base64').strip()
-
 @Client.on_message(filters.command(Config.HASH_COMMAND))
 async def FileHashBot(client, message):
     # user details
@@ -172,7 +165,7 @@ async def FileHashBot(client, message):
     finishedText = "File: `{}`\n".format(documentFilename)
     finishedText += "Size: `{}`\n".format(documentFilesize)
     finishedText += "MD5: `{}`".format(md5.hexdigest())
-   # finishedText += "MD5: `{}`".format(get_md5(downloadedFileLocation))
+    finishedText += "MD5: `{}`".format(base64.b64encode(md5.hexdigest().encode()))
    # timeTaken = f"🥚 Hash Time / İşlem Süresi: `{TimeFormatter((hashFinishTime - hashStartTime) * 1000)}`"
     await editMessage(downloadingMessage, Config.HASH_SUCCESS.format(finishedText))
     # clean folder if one process per user
